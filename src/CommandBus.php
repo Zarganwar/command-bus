@@ -1,6 +1,8 @@
 <?php
 
-namespace Zarganwar\CommandBus\Command;
+namespace Zarganwar\CommandBus;
+
+use Zarganwar\CommandBus\BusImplementations\Command\SimpleCommandBus;
 
 interface CommandBus
 {

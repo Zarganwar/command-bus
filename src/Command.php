@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Zarganwar\CommandBus\Command;
+namespace Zarganwar\CommandBus;
 
 
 interface Command

@@ -1,9 +1,12 @@
 <?php
 
 
-namespace Zarganwar\CommandBus\Command;
+namespace Zarganwar\CommandBus\BusImplementations\Command;
 
 
+use Zarganwar\CommandBus\Command;
+use Zarganwar\CommandBus\CommandBus;
+use Zarganwar\CommandBus\CommandHandler;
 use Zarganwar\CommandBus\Exceptions\RuntimeException;
 
 class SimpleCommandBus implements CommandBus
