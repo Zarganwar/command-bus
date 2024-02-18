@@ -7,7 +7,7 @@ namespace Zarganwar\CommandBus\Implementation;
 use Zarganwar\CommandBus\Command;
 use Zarganwar\CommandBus\CommandBus;
 use Zarganwar\CommandBus\CommandHandler;
-use Zarganwar\CommandBus\Exceptions\RuntimeException;
+use Zarganwar\CommandBus\Exceptions\CommandHandlerNotFoundException;
 
 class SimpleCommandBus implements CommandBus
 {
@@ -18,6 +18,9 @@ class SimpleCommandBus implements CommandBus
 	private array $handlers = [];
 
 
+	/**
+	 * @param class-string $command
+	 */
 	public function registerHandler(string $command, CommandHandler $handler): self
 	{
 		$this->handlers[$command] = $handler;
@@ -26,10 +29,10 @@ class SimpleCommandBus implements CommandBus
 	}
 
 
-	public function handle(Command $command): mixed
+	public function handle(Command $command)
 	{
 		$class = $command::class;
-		$handler = $this->handlers[$class] ?? throw new RuntimeException("No handler registered for command class {$class}");
+		$handler = $this->handlers[$class] ?? throw new CommandHandlerNotFoundException("No handler registered for command class '{$class}'");
 
 		return $handler->handle($command);
 	}

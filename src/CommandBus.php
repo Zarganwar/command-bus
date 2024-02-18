@@ -2,14 +2,12 @@
 
 namespace Zarganwar\CommandBus;
 
-use Zarganwar\CommandBus\Implementation\SimpleCommandBus;
-
 interface CommandBus
 {
 
-	public function registerHandler(string $command, CommandHandler $handler): SimpleCommandBus;
+	public function registerHandler(string $command, CommandHandler $handler): self;
 
 
-	public function handle(Command $command): mixed;
+	public function handle(Command $command);
 
 }

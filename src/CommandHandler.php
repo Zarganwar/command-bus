@@ -5,6 +5,6 @@ namespace Zarganwar\CommandBus;
 interface CommandHandler
 {
 
-	public function handle(Command $command): mixed;
+	public function handle(Command $command);
 
 }
